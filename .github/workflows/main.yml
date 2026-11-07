@@ -1,0 +1,25 @@
+name: Build IPA
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Installer ldid
+        run: brew install ldid
+
+      - name: Compiler et créer l'IPA
+        run: |
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Publier l'IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: MonApp-ipa
+          path: build/MonApp.ipa
