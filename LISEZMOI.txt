@@ -1,0 +1,30 @@
+MonApp - mini app iOS (UIKit, iOS 12.2+, arm64)
+
+SUR TON MAC
+1. Installe Xcode (App Store), puis dans le Terminal :
+     xcode-select --install
+     brew install ldid
+2. Dézippe ce dossier, puis :
+     cd MonApp
+     chmod +x build.sh
+     ./build.sh
+3. Résultat : build/MonApp.ipa
+
+SUR L'IPHONE (jailbreak checkra1n + AppSync Unified)
+- Envoie MonApp.ipa sur l'iPhone (AirDrop ou Filza).
+- Ouvre-le dans Filza, puis Installer.
+
+PERSONNALISER
+- Code de l'app : dossier Sources/
+- Nom / identifiant : Info.plist (CFBundleIdentifier, CFBundleDisplayName)
+  Si tu changes CFBundleExecutable, change aussi le nom dans build.sh.
+
+Si la compilation échoue sur le SDK ou le "target", ta version de Xcode est
+peut-être trop récente ou trop ancienne : dis-moi le message d'erreur exact.
+
+
+AVEC GITHUB ACTIONS (sans Mac)
+1. Cree un depot GitHub (public = minutes gratuites) et envoie-y le contenu de ce dossier
+   (le dossier .github doit etre a la racine du depot).
+2. Onglet Actions > Build IPA > attends la coche verte.
+3. En bas de la page du run, telecharge MonApp-ipa (un zip contenant MonApp.ipa).
